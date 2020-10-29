@@ -19,8 +19,8 @@ class Renderer: NSObject {
     SIMD4<Float>(-0.5, -0.2, 0, 1),
     SIMD4<Float>(0.2, -0.2, 0, 1),
     SIMD4<Float>(0, 0.5, 0, 1),
-    SIMD4<Float>(0, 0.5, 0, 1),
-    SIMD4<Float>(0.2, -0.2, 0, 1),
+//    SIMD4<Float>(0, 0.5, 0, 1),
+//    SIMD4<Float>(0.2, -0.2, 0, 1),
     SIMD4<Float>(0.7, 0.7, 0, 1)
   ]
   
@@ -28,15 +28,19 @@ class Renderer: NSObject {
     SIMD3<Float>(1, 0, 0),
     SIMD3<Float>(0, 1, 0),
     SIMD3<Float>(0, 0, 1),
-    SIMD3<Float>(0, 0, 1),
-    SIMD3<Float>(0, 1, 0),
+//    SIMD3<Float>(0, 0, 1),
+//    SIMD3<Float>(0, 1, 0),
     SIMD3<Float>(1, 0, 1)
+  ]
+  
+  let indexArray: [UInt16] = [
+    0, 1, 2,
+    2, 1, 3
   ]
   
   let positionBuffer: MTLBuffer
   let colorBuffer: MTLBuffer
-  
-  var timer: Float = 0
+  let indexBuffer: MTLBuffer
   
   init(view: MTKView) {
     guard let device = MTLCreateSystemDefaultDevice(),
@@ -52,6 +56,9 @@ class Renderer: NSObject {
     positionBuffer = device.makeBuffer(bytes: positionArray, length: positionLength, options: [])!
     let colorLength = MemoryLayout<SIMD3<Float>>.stride * colorArray.count
     colorBuffer = device.makeBuffer(bytes: colorArray, length: colorLength, options: [])!
+    
+    let indexLength = MemoryLayout<UInt16>.stride * indexArray.count
+    indexBuffer = device.makeBuffer(bytes: indexArray, length: indexLength, options: [])!
     super.init()
   }
   
@@ -80,19 +87,16 @@ extension Renderer : MTKViewDelegate {
       let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor) else {
         return
     }
-    timer += 0.05
-    var currentTime = sin(timer)
-    commandEncoder.setVertexBytes(&currentTime,
-                                  length: MemoryLayout<Float>.stride,
-                                  index: 2)
-    
     commandEncoder.setRenderPipelineState(pipelineState)
     commandEncoder.setVertexBuffer(positionBuffer, offset: 0, index: 0)
     commandEncoder.setVertexBuffer(colorBuffer, offset: 0, index: 1)
     
-    commandEncoder.drawPrimitives(type: .triangle,
-                                  vertexStart: 0,
-                                  vertexCount: 6)
+    // draw call    
+    commandEncoder.drawIndexedPrimitives(type: .triangle,
+                                         indexCount: indexArray.count,
+                                         indexType: .uint16,
+                                         indexBuffer: indexBuffer,
+                                         indexBufferOffset: 0)
     
     commandEncoder.endEncoding()
     
