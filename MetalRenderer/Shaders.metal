@@ -9,7 +9,6 @@
 #include <metal_stdlib>
 using namespace metal;
 
-/*
 constant float3 color[6] = {
   float3(1, 0, 0),
   float3(0, 1, 0),
@@ -18,11 +17,9 @@ constant float3 color[6] = {
   float3(0, 1, 0),
   float3(1, 0, 1)
 };
-*/
 
 struct VertexIn {
   float4 position [[attribute(0)]];
-  float3 color [[attribute(1)]];
 };
 
 struct VertexOut {
@@ -30,11 +27,13 @@ struct VertexOut {
   float3 color;
 };
 
-vertex VertexOut vertex_main(VertexIn vertexBuffer[[stage_in]]) {
+vertex VertexOut vertex_main(VertexIn vertexBuffer[[stage_in]],
+                             constant uint &colorIndex [[buffer(11)]]) {
   VertexOut out {
     .position = vertexBuffer.position,
-    .color = vertexBuffer.color
-  };  
+    .color = color[colorIndex]
+  };
+  out.position.y -= 0.5;
   return out;
 }
 
