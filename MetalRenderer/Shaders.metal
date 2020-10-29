@@ -24,6 +24,6 @@ vertex VertexOut vertex_main() {
   return out;
 }
 
-fragment float4 fragment_main() {
-  return float4(0, 0, 1, 1);
+fragment float4 fragment_main(VertexOut in [[stage_in]]) {
+  return float4(in.color, 1);
 }
