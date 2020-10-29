@@ -19,6 +19,10 @@
 		54C99C9B254AFFAD00BB3EEA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99C9A254AFFAD00BB3EEA /* Model.swift */; };
 		54C99C9E254B057000BB3EEA /* train.obj in Resources */ = {isa = PBXBuildFile; fileRef = 54C99C9C254B057000BB3EEA /* train.obj */; };
 		54C99C9F254B057000BB3EEA /* train.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 54C99C9D254B057000BB3EEA /* train.mtl */; };
+		54C99CAF254B2EF400BB3EEA /* MathLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CAE254B2EF400BB3EEA /* MathLibrary.swift */; };
+		54C99CB1254B2F0800BB3EEA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CB0254B2F0800BB3EEA /* Transform.swift */; };
+		54C99CB4254B357A00BB3EEA /* treefir.obj in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB2254B357A00BB3EEA /* treefir.obj */; };
+		54C99CB5254B357A00BB3EEA /* treefir.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB3254B357A00BB3EEA /* treefir.mtl */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		54C99C9A254AFFAD00BB3EEA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		54C99C9C254B057000BB3EEA /* train.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.obj; sourceTree = "<group>"; };
 		54C99C9D254B057000BB3EEA /* train.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = train.mtl; sourceTree = "<group>"; };
+		54C99CAE254B2EF400BB3EEA /* MathLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathLibrary.swift; sourceTree = "<group>"; };
+		54C99CB0254B2F0800BB3EEA /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		54C99CB2254B357A00BB3EEA /* treefir.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.obj; sourceTree = "<group>"; };
+		54C99CB3254B357A00BB3EEA /* treefir.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.mtl; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +83,8 @@
 				54C99C9A254AFFAD00BB3EEA /* Model.swift */,
 				54C99C96254AB93100BB3EEA /* Shaders.metal */,
 				54C99C98254AD67F00BB3EEA /* Extensions.swift */,
+				54C99CAE254B2EF400BB3EEA /* MathLibrary.swift */,
+				54C99CB0254B2F0800BB3EEA /* Transform.swift */,
 				54C99CA0254B057500BB3EEA /* Models */,
 				54C99C86254AA72100BB3EEA /* Main.storyboard */,
 				54C99C89254AA72400BB3EEA /* Assets.xcassets */,
@@ -87,6 +97,8 @@
 		54C99CA0254B057500BB3EEA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				54C99CB3254B357A00BB3EEA /* treefir.mtl */,
+				54C99CB2254B357A00BB3EEA /* treefir.obj */,
 				54C99C9D254B057000BB3EEA /* train.mtl */,
 				54C99C9C254B057000BB3EEA /* train.obj */,
 			);
@@ -154,6 +166,8 @@
 				54C99C9E254B057000BB3EEA /* train.obj in Resources */,
 				54C99C9F254B057000BB3EEA /* train.mtl in Resources */,
 				54C99C8D254AA72400BB3EEA /* LaunchScreen.storyboard in Resources */,
+				54C99CB4254B357A00BB3EEA /* treefir.obj in Resources */,
+				54C99CB5254B357A00BB3EEA /* treefir.mtl in Resources */,
 				54C99C8A254AA72400BB3EEA /* Assets.xcassets in Resources */,
 				54C99C88254AA72100BB3EEA /* Main.storyboard in Resources */,
 			);
@@ -169,9 +183,11 @@
 				54C99C9B254AFFAD00BB3EEA /* Model.swift in Sources */,
 				54C99C95254AAB8100BB3EEA /* Renderer.swift in Sources */,
 				54C99C99254AD67F00BB3EEA /* Extensions.swift in Sources */,
+				54C99CAF254B2EF400BB3EEA /* MathLibrary.swift in Sources */,
 				54C99C85254AA72100BB3EEA /* ViewController.swift in Sources */,
 				54C99C81254AA72100BB3EEA /* AppDelegate.swift in Sources */,
 				54C99C83254AA72100BB3EEA /* SceneDelegate.swift in Sources */,
+				54C99CB1254B2F0800BB3EEA /* Transform.swift in Sources */,
 				54C99C97254AB93100BB3EEA /* Shaders.metal in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
