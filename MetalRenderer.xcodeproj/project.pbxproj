@@ -25,6 +25,9 @@
 		54C99CB5254B357A00BB3EEA /* treefir.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB3254B357A00BB3EEA /* treefir.mtl */; };
 		54C99CB7254BDC0400BB3EEA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CB6254BDC0400BB3EEA /* Camera.swift */; };
 		54C99CBE254C5EE400BB3EEA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CBD254C5EE400BB3EEA /* Node.swift */; };
+		54C99CC0254C611100BB3EEA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CBF254C611100BB3EEA /* Scene.swift */; };
+		54C99CC2254C614B00BB3EEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CC1254C614B00BB3EEA /* GameScene.swift */; };
+		54C99CC4254C629D00BB3EEA /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CC3254C629D00BB3EEA /* Renderable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +52,9 @@
 		54C99CB6254BDC0400BB3EEA /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		54C99CB8254BE2E300BB3EEA /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 		54C99CBD254C5EE400BB3EEA /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
+		54C99CBF254C611100BB3EEA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		54C99CC1254C614B00BB3EEA /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		54C99CC3254C629D00BB3EEA /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +95,9 @@
 				54C99C9A254AFFAD00BB3EEA /* Model.swift */,
 				54C99CB6254BDC0400BB3EEA /* Camera.swift */,
 				54C99CBD254C5EE400BB3EEA /* Node.swift */,
+				54C99CBF254C611100BB3EEA /* Scene.swift */,
+				54C99CC1254C614B00BB3EEA /* GameScene.swift */,
+				54C99CC3254C629D00BB3EEA /* Renderable.swift */,
 				54C99C96254AB93100BB3EEA /* Shaders.metal */,
 				54C99CB8254BE2E300BB3EEA /* Common.h */,
 				54C99CAE254B2EF400BB3EEA /* MathLibrary.swift */,
@@ -196,6 +205,9 @@
 				54C99C85254AA72100BB3EEA /* ViewController.swift in Sources */,
 				54C99C81254AA72100BB3EEA /* AppDelegate.swift in Sources */,
 				54C99CB7254BDC0400BB3EEA /* Camera.swift in Sources */,
+				54C99CC2254C614B00BB3EEA /* GameScene.swift in Sources */,
+				54C99CC4254C629D00BB3EEA /* Renderable.swift in Sources */,
+				54C99CC0254C611100BB3EEA /* Scene.swift in Sources */,
 				54C99C83254AA72100BB3EEA /* SceneDelegate.swift in Sources */,
 				54C99CB1254B2F0800BB3EEA /* Transform.swift in Sources */,
 				54C99C97254AB93100BB3EEA /* Shaders.metal in Sources */,

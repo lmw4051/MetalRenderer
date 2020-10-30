@@ -12,6 +12,7 @@ import MetalKit
 class ViewController: UIViewController {
   @IBOutlet var metalView: MTKView!
   var renderer: Renderer?
+  var scene: Scene?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
                                          green: 1.0,
                                          blue: 0.8,
                                          alpha: 1.0)
+    
+    scene = GameScene(sceneSize: metalView.bounds.size)
+    renderer?.scene = scene
     
     let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))
     metalView.addGestureRecognizer(pinch)

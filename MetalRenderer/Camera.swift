@@ -73,7 +73,7 @@ class ArcballCamera: Camera {
   }
   
   override func rotate(delta: SIMD2<Float>) {
-    let sensitivity: Float = 0.005
+    let sensitivity: Float = 0.001
     rotation.y += delta.x * sensitivity
     rotation.x += delta.y * sensitivity
     rotation.x = max(-Float.pi/2, min(rotation.x, Float.pi/2))

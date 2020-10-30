@@ -22,10 +22,9 @@ class Renderer: NSObject {
   let pipelineState: MTLRenderPipelineState
   let depthStencilState: MTLDepthStencilState
   
-  let train: Model
-  let tree: Model
+  weak var scene: Scene?
+    
   let camera = ArcballCamera()
-  
   var uniforms = Uniforms()
   var fragmentUniforms = FragmentUniforms()
   
@@ -40,16 +39,10 @@ class Renderer: NSObject {
     pipelineState = Renderer.createPipelineState()
     depthStencilState = Renderer.createDepthState()
             
-    view.depthStencilPixelFormat = .depth32Float
+    camera.target = [-0.5, 0.8, 0]
+    camera.distance = 5
     
-    train = Model(name: "train")
-    train.position = [0.4, 0, 0]
-    train.scale = 0.5
-    train.rotation.y = radians(fromDegrees: 180)
-    
-    tree = Model(name: "treefir")
-    tree.position = [-1, 0, 1]
-    tree.scale = 0.5
+    view.depthStencilPixelFormat = .depth32Float        
     
     super.init()
   }
@@ -84,9 +77,11 @@ extension Renderer : MTKViewDelegate {
     guard let commandBuffer = commandQueue.makeCommandBuffer(),
       let drawable = view.currentDrawable,
       let descriptor = view.currentRenderPassDescriptor,
-      let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor) else {
+      let scene = scene else {
         return
     }
+    
+    let commandEncoder = commandBuffer.makeRenderCommandEncoder(descriptor: descriptor)!
     commandEncoder.setRenderPipelineState(pipelineState)
     commandEncoder.setDepthStencilState(depthStencilState)
     
@@ -97,34 +92,12 @@ extension Renderer : MTKViewDelegate {
     commandEncoder.setFragmentBytes(&fragmentUniforms,
                                     length: MemoryLayout<FragmentUniforms>.stride,
                                     index: 22)
-    
-    let models = [tree, train]
-    for model in models {
-      uniforms.modelMatrix = model.matrix
-      commandEncoder.setVertexBytes(&uniforms,
-                                    length: MemoryLayout<Uniforms>.stride,
-                                    index: 21)
-      
-      for mtkMesh in model.mtkMeshes {
-        for vertexBuffer in mtkMesh.vertexBuffers {
-          commandEncoder.setVertexBuffer(vertexBuffer.buffer,
-                                         offset: 0, index: 0)
-          
-          var color = 0
-          
-          for submesh in mtkMesh.submeshes {
-            commandEncoder.setVertexBytes(&color, length: MemoryLayout<Int>.stride, index: 11)
-            // draw call
-            commandEncoder.drawIndexedPrimitives(type: .triangle,
-                                                 indexCount: submesh.indexCount,
-                                                 indexType: submesh.indexType,
-                                                 indexBuffer: submesh.indexBuffer.buffer,
-                                                 indexBufferOffset: submesh.indexBuffer.offset)
-            
-            color += 1
-          }
-        }
-      }
+        
+    for renderable in scene.renderables {
+      commandEncoder.pushDebugGroup(renderable.name)
+      renderable.render(commandEncoder: commandEncoder,
+                        uniforms: uniforms)
+      commandEncoder.popDebugGroup()
     }
     
     commandEncoder.endEncoding()
