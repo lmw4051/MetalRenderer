@@ -23,6 +23,7 @@
 		54C99CB1254B2F0800BB3EEA /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CB0254B2F0800BB3EEA /* Transform.swift */; };
 		54C99CB4254B357A00BB3EEA /* treefir.obj in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB2254B357A00BB3EEA /* treefir.obj */; };
 		54C99CB5254B357A00BB3EEA /* treefir.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB3254B357A00BB3EEA /* treefir.mtl */; };
+		54C99CB7254BDC0400BB3EEA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CB6254BDC0400BB3EEA /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,8 @@
 		54C99CB0254B2F0800BB3EEA /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		54C99CB2254B357A00BB3EEA /* treefir.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.obj; sourceTree = "<group>"; };
 		54C99CB3254B357A00BB3EEA /* treefir.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.mtl; sourceTree = "<group>"; };
+		54C99CB6254BDC0400BB3EEA /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		54C99CB8254BE2E300BB3EEA /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,11 +83,13 @@
 				54C99C82254AA72100BB3EEA /* SceneDelegate.swift */,
 				54C99C84254AA72100BB3EEA /* ViewController.swift */,
 				54C99C94254AAB8100BB3EEA /* Renderer.swift */,
+				54C99CB6254BDC0400BB3EEA /* Camera.swift */,
+				54C99C98254AD67F00BB3EEA /* Extensions.swift */,
+				54C99CB0254B2F0800BB3EEA /* Transform.swift */,
 				54C99C9A254AFFAD00BB3EEA /* Model.swift */,
 				54C99C96254AB93100BB3EEA /* Shaders.metal */,
-				54C99C98254AD67F00BB3EEA /* Extensions.swift */,
+				54C99CB8254BE2E300BB3EEA /* Common.h */,
 				54C99CAE254B2EF400BB3EEA /* MathLibrary.swift */,
-				54C99CB0254B2F0800BB3EEA /* Transform.swift */,
 				54C99CA0254B057500BB3EEA /* Models */,
 				54C99C86254AA72100BB3EEA /* Main.storyboard */,
 				54C99C89254AA72400BB3EEA /* Assets.xcassets */,
@@ -186,6 +191,7 @@
 				54C99CAF254B2EF400BB3EEA /* MathLibrary.swift in Sources */,
 				54C99C85254AA72100BB3EEA /* ViewController.swift in Sources */,
 				54C99C81254AA72100BB3EEA /* AppDelegate.swift in Sources */,
+				54C99CB7254BDC0400BB3EEA /* Camera.swift in Sources */,
 				54C99C83254AA72100BB3EEA /* SceneDelegate.swift in Sources */,
 				54C99CB1254B2F0800BB3EEA /* Transform.swift in Sources */,
 				54C99C97254AB93100BB3EEA /* Shaders.metal in Sources */,
@@ -270,6 +276,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalRenderer/Common.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -323,6 +330,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = MetalRenderer/Common.h;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

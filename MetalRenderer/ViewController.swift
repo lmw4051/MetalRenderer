@@ -22,5 +22,12 @@ class ViewController: UIViewController {
                                          green: 1.0,
                                          blue: 0.8,
                                          alpha: 1.0)
+    
+    let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))
+    metalView.addGestureRecognizer(pinch)
+  }
+  
+  @objc func pinchAction(sender: UIPinchGestureRecognizer) {
+    renderer?.zoom(delta: Float(sender.velocity))
   }
 }
