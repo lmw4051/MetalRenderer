@@ -31,8 +31,7 @@ class ViewController: UIViewController {
   }
   
   @objc func pinchAction(sender: UIPinchGestureRecognizer) {
-    renderer?.camera.zoom(delta: Float(sender.velocity))
-    print("renderer?.camera.transform.position: \(String(describing: renderer?.camera.transform.position))")
+    renderer?.camera.zoom(delta: Float(sender.velocity))    
   }
   
   @objc func panAction(sender: UIPanGestureRecognizer) {

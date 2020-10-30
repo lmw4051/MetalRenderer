@@ -9,11 +9,9 @@
 import Foundation
 import MetalKit
 
-class Model {
+class Model: Node {
   var mdlMeshes: [MDLMesh]
   var mtkMeshes: [MTKMesh]
-  
-  var transform = Transform()
   
   init(name: String) {
     let assetUrl = Bundle.main.url(forResource: name, withExtension: "obj")!
@@ -27,5 +25,8 @@ class Model {
                                                         device: Renderer.device)
     self.mdlMeshes = mdlMeshes
     self.mtkMeshes = mtkMeshes
+    
+    super.init()
+    self.name = name
   }
 }

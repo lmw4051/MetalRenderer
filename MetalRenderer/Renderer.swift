@@ -43,13 +43,13 @@ class Renderer: NSObject {
     view.depthStencilPixelFormat = .depth32Float
     
     train = Model(name: "train")
-    train.transform.position = [0.4, 0, 0]
-    train.transform.scale = 0.5
-    train.transform.rotation.y = radians(fromDegrees: 180)
+    train.position = [0.4, 0, 0]
+    train.scale = 0.5
+    train.rotation.y = radians(fromDegrees: 180)
     
     tree = Model(name: "treefir")
-    tree.transform.position = [-1, 0, 1]
-    tree.transform.scale = 0.5
+    tree.position = [-1, 0, 1]
+    tree.scale = 0.5
     
     super.init()
   }
@@ -93,14 +93,14 @@ extension Renderer : MTKViewDelegate {
     uniforms.viewMatrix = camera.viewMatrix
     uniforms.projectionMatrix = camera.projectionMatrix
     
-    fragmentUniforms.cameraPosition = camera.transform.position
+    fragmentUniforms.cameraPosition = camera.position
     commandEncoder.setFragmentBytes(&fragmentUniforms,
                                     length: MemoryLayout<FragmentUniforms>.stride,
                                     index: 22)
     
     let models = [tree, train]
     for model in models {
-      uniforms.modelMatrix = model.transform.matrix
+      uniforms.modelMatrix = model.matrix
       commandEncoder.setVertexBytes(&uniforms,
                                     length: MemoryLayout<Uniforms>.stride,
                                     index: 21)

@@ -24,6 +24,7 @@
 		54C99CB4254B357A00BB3EEA /* treefir.obj in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB2254B357A00BB3EEA /* treefir.obj */; };
 		54C99CB5254B357A00BB3EEA /* treefir.mtl in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CB3254B357A00BB3EEA /* treefir.mtl */; };
 		54C99CB7254BDC0400BB3EEA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CB6254BDC0400BB3EEA /* Camera.swift */; };
+		54C99CBE254C5EE400BB3EEA /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CBD254C5EE400BB3EEA /* Node.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		54C99CB3254B357A00BB3EEA /* treefir.mtl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = treefir.mtl; sourceTree = "<group>"; };
 		54C99CB6254BDC0400BB3EEA /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		54C99CB8254BE2E300BB3EEA /* Common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Common.h; sourceTree = "<group>"; };
+		54C99CBD254C5EE400BB3EEA /* Node.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,7 +87,10 @@
 				54C99C94254AAB8100BB3EEA /* Renderer.swift */,
 				54C99C98254AD67F00BB3EEA /* Extensions.swift */,
 				54C99C9A254AFFAD00BB3EEA /* Model.swift */,
+				54C99CB6254BDC0400BB3EEA /* Camera.swift */,
+				54C99CBD254C5EE400BB3EEA /* Node.swift */,
 				54C99C96254AB93100BB3EEA /* Shaders.metal */,
+				54C99CB8254BE2E300BB3EEA /* Common.h */,
 				54C99CAE254B2EF400BB3EEA /* MathLibrary.swift */,
 				54C99CA0254B057500BB3EEA /* Models */,
 				54C99C86254AA72100BB3EEA /* Main.storyboard */,
@@ -93,8 +98,6 @@
 				54C99C8B254AA72400BB3EEA /* LaunchScreen.storyboard */,
 				54C99C8E254AA72400BB3EEA /* Info.plist */,
 				54C99CB0254B2F0800BB3EEA /* Transform.swift */,
-				54C99CB6254BDC0400BB3EEA /* Camera.swift */,
-				54C99CB8254BE2E300BB3EEA /* Common.h */,
 			);
 			path = MetalRenderer;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				54C99C9B254AFFAD00BB3EEA /* Model.swift in Sources */,
 				54C99C95254AAB8100BB3EEA /* Renderer.swift in Sources */,
 				54C99C99254AD67F00BB3EEA /* Extensions.swift in Sources */,
+				54C99CBE254C5EE400BB3EEA /* Node.swift in Sources */,
 				54C99CAF254B2EF400BB3EEA /* MathLibrary.swift in Sources */,
 				54C99C85254AA72100BB3EEA /* ViewController.swift in Sources */,
 				54C99C81254AA72100BB3EEA /* AppDelegate.swift in Sources */,
