@@ -17,4 +17,8 @@ typedef struct {
   matrix_float4x4 projectionMatrix;
 } Uniforms;
 
+typedef struct {
+  vector_float3 cameraPosition;
+} FragmentUniforms;
+
 #endif /* Common_h */
