@@ -24,7 +24,7 @@ class Renderer: NSObject {
   
   let train: Model
   let tree: Model
-  let camera = Camera()
+  let camera = ArcballCamera()
   
   var uniforms = Uniforms()
   
@@ -53,13 +53,7 @@ class Renderer: NSObject {
     
     super.init()
   }
-  static func createDepthState() -> MTLDepthStencilState {
-    let depthDescriptor = MTLDepthStencilDescriptor()
-    depthDescriptor.depthCompareFunction = .less
-    depthDescriptor.isDepthWriteEnabled = true
-    return Renderer.device.makeDepthStencilState(descriptor: depthDescriptor)!
-  }
-  
+   
   static func createPipelineState() -> MTLRenderPipelineState {
     let pipelineStateDescriptor = MTLRenderPipelineDescriptor()
     pipelineStateDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
@@ -73,11 +67,12 @@ class Renderer: NSObject {
     return try! Renderer.device.makeRenderPipelineState(descriptor: pipelineStateDescriptor)
   }
   
-  func zoom(delta: Float) {
-    let sensitivity: Float = 0.05
-    let cameraVector = camera.transform.matrix.upperLeft.columns.2
-    camera.transform.position += delta * sensitivity * cameraVector
-  }
+  static func createDepthState() -> MTLDepthStencilState {
+    let depthDescriptor = MTLDepthStencilDescriptor()
+    depthDescriptor.depthCompareFunction = .less
+    depthDescriptor.isDepthWriteEnabled = true
+    return Renderer.device.makeDepthStencilState(descriptor: depthDescriptor)!
+  }    
 }
 
 extension Renderer : MTKViewDelegate {

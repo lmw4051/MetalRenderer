@@ -25,9 +25,21 @@ class ViewController: UIViewController {
     
     let pinch = UIPinchGestureRecognizer(target: self, action: #selector(pinchAction(sender:)))
     metalView.addGestureRecognizer(pinch)
+    
+    let pan = UIPanGestureRecognizer(target: self, action: #selector(panAction(sender:)))
+    metalView.addGestureRecognizer(pan)
   }
   
   @objc func pinchAction(sender: UIPinchGestureRecognizer) {
-    renderer?.zoom(delta: Float(sender.velocity))
+    renderer?.camera.zoom(delta: Float(sender.velocity))
+    print("renderer?.camera.transform.position: \(String(describing: renderer?.camera.transform.position))")
+  }
+  
+  @objc func panAction(sender: UIPanGestureRecognizer) {
+    let translation = sender.translation(in: sender.view)
+    let delta = SIMD2<Float>(Float(translation.x),
+                             Float(translation.y))
+    
+    renderer?.camera.rotate(delta: delta)
   }
 }
