@@ -27,4 +27,8 @@ typedef struct {
   float shininess;
 } Material;
 
+typedef struct {
+  matrix_float4x4 modelMatrix;
+} Instances;
+
 #endif /* Common_h */

@@ -19,10 +19,7 @@ class Scene {
   var uniforms = Uniforms()
   var fragmentUniforms = FragmentUniforms()
   
-  init(sceneSize: CGSize) {
-    camera.target = [-0.7, 0.8, 0]
-    camera.distance = 8
-    
+  init(sceneSize: CGSize) {    
     self.sceneSize = sceneSize
     sceneSizeWillChange(to: sceneSize)
     setupScene()
