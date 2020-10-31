@@ -17,6 +17,9 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     renderer = Renderer(view: metalView)
+    scene = GameScene(sceneSize: metalView.bounds.size)
+    renderer?.scene = scene
+    
     metalView.device = Renderer.device
     metalView.delegate = renderer
     metalView.clearColor = MTLClearColor(red: 1.0,
@@ -35,7 +38,7 @@ class ViewController: UIViewController {
   }
   
   @objc func pinchAction(sender: UIPinchGestureRecognizer) {
-    renderer?.camera.zoom(delta: Float(sender.velocity))    
+    scene?.camera.zoom(delta: Float(sender.velocity))
   }
   
   @objc func panAction(sender: UIPanGestureRecognizer) {
@@ -43,6 +46,6 @@ class ViewController: UIViewController {
     let delta = SIMD2<Float>(Float(translation.x),
                              Float(translation.y))
     
-    renderer?.camera.rotate(delta: delta)
+    scene?.camera.rotate(delta: delta)
   }
 }

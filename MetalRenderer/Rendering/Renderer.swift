@@ -9,11 +9,6 @@
 import Foundation
 import MetalKit
 
-struct Vertex {
-  let position: SIMD3<Float>
-  let color: SIMD3<Float>
-}
-
 class Renderer: NSObject {
   static var device: MTLDevice!
   let commandQueue: MTLCommandQueue
@@ -24,10 +19,6 @@ class Renderer: NSObject {
   
   weak var scene: Scene?
     
-  let camera = ArcballCamera()
-  var uniforms = Uniforms()
-  var fragmentUniforms = FragmentUniforms()
-  
   init(view: MTKView) {
     guard let device = MTLCreateSystemDefaultDevice(),
       let commandQueue = device.makeCommandQueue() else {
@@ -38,9 +29,6 @@ class Renderer: NSObject {
     Renderer.library = device.makeDefaultLibrary()
     pipelineState = Renderer.createPipelineState()
     depthStencilState = Renderer.createDepthState()
-            
-    camera.target = [-0.5, 0.8, 0]
-    camera.distance = 5
     
     view.depthStencilPixelFormat = .depth32Float        
     
@@ -70,7 +58,7 @@ class Renderer: NSObject {
 
 extension Renderer : MTKViewDelegate {
   func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-    camera.aspect = Float(view.bounds.width / view.bounds.height)
+    scene?.sceneSizeWillChange(to: size)
   }
   
   func draw(in view: MTKView) {
@@ -85,18 +73,14 @@ extension Renderer : MTKViewDelegate {
     commandEncoder.setRenderPipelineState(pipelineState)
     commandEncoder.setDepthStencilState(depthStencilState)
     
-    uniforms.viewMatrix = camera.viewMatrix
-    uniforms.projectionMatrix = camera.projectionMatrix
-    
-    fragmentUniforms.cameraPosition = camera.position
-    commandEncoder.setFragmentBytes(&fragmentUniforms,
-                                    length: MemoryLayout<FragmentUniforms>.stride,
-                                    index: 22)
+    let deltaTime = 1 / Float(view.preferredFramesPerSecond)
+    scene.update(deltaTime: deltaTime)
         
     for renderable in scene.renderables {
       commandEncoder.pushDebugGroup(renderable.name)
       renderable.render(commandEncoder: commandEncoder,
-                        uniforms: uniforms)
+                        uniforms: scene.uniforms,
+                        fragmentUniforms: scene.fragmentUniforms)
       commandEncoder.popDebugGroup()
     }
     
