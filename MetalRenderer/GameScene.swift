@@ -21,8 +21,8 @@ class GameScene: Scene {
     add(node: trees)
     
     for i in 0..<100 {
-      trees.transforms[i].position.x = Float(i) - 50
-      trees.transforms[i].position.z = 2
+      trees.transforms[i].position.x = Float.random(in: -5..<5)
+      trees.transforms[i].position.z = Float.random(in: 1..<10)
     }
   }
 }
