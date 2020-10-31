@@ -20,6 +20,8 @@ class Model: Node {
                          vertexDescriptor: vertexDescriptor,
                          bufferAllocator: allocator)
     
+    asset.loadTextures()
+    
     let (mdlMeshes, mtkMeshes) = try! MTKMesh.newMeshes(asset: asset, device: Renderer.device)
     
     meshes = zip(mdlMeshes, mtkMeshes).map {
@@ -48,16 +50,15 @@ extension Model: Renderable {
     
     for mesh in meshes {
       for vertexBuffer in mesh.mtkMesh.vertexBuffers {
-        
         commandEncoder.setVertexBuffer(vertexBuffer.buffer, offset: 0, index: 0)
         
         for submesh in mesh.submeshes {
-          
           var material = submesh.material
           commandEncoder.setFragmentBytes(&material,
                                           length: MemoryLayout<Material>.stride,
                                           index: 11)
           
+          commandEncoder.setFragmentTexture(submesh.textures.baseColor, index: 0)
           let mtkSubmesh = submesh.mtkSubmesh
                     
           commandEncoder.drawIndexedPrimitives(type: .triangle,

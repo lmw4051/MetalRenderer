@@ -12,17 +12,8 @@ using namespace metal;
 
 constant float3 lightPosition = float3(2.0, 1.0, 0);
 constant float3 ambientLightColor = float3(1.0, 1.0, 1.0);
-constant float ambientLightIntensity = 0.3;
+constant float ambientLightIntensity = 0.4;
 constant float3 lightSpecularColor = float3(1.0, 1.0, 1.0);
-
-constant float3 color[6] = {
-  float3(1, 0, 0),
-  float3(0, 1, 0),
-  float3(0, 0, 1),
-  float3(0, 0, 1),
-  float3(0, 1, 0),
-  float3(1, 0, 1)
-};
 
 struct VertexOut {
   float4 position [[position]];
@@ -50,7 +41,9 @@ vertex VertexOut vertex_main(VertexIn vertexBuffer [[stage_in]],
 
 fragment float4 fragment_main(VertexOut in [[stage_in]],
                               constant Material &material [[buffer(11)]],
-                              constant FragmentUniforms &fragmentUniforms [[ buffer(22)]]) {    
+                              constant FragmentUniforms &fragmentUniforms [[ buffer(22)]],
+                              texture2d<float>baseColorTexture [[texture(0)]]) {
+  const sampler s(filter::linear);
   
   float materialShininess = material.shininess;
   float3 materialSpecularColor = material.specularColor;
@@ -60,7 +53,7 @@ fragment float4 fragment_main(VertexOut in [[stage_in]],
   float3 reflection = reflect(lightVector, normalVector);
   float3 cameraVector = normalize(in.worldPosition - fragmentUniforms.cameraPosition);
 
-  float3 baseColor = material.baseColor;
+  float3 baseColor = baseColorTexture.sample(s, in.uv).rgb;
   float diffuseIntensity = saturate(dot(lightVector, normalVector));
   
   float3 diffuseColor = baseColor * diffuseIntensity;

@@ -29,6 +29,7 @@
 		54C99CC2254C614B00BB3EEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CC1254C614B00BB3EEA /* GameScene.swift */; };
 		54C99CC4254C629D00BB3EEA /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CC3254C629D00BB3EEA /* Renderable.swift */; };
 		54C99CD1254D3B1300BB3EEA /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CD0254D3B1300BB3EEA /* Mesh.swift */; };
+		54C99CD5254D9FF100BB3EEA /* train-color.png in Resources */ = {isa = PBXBuildFile; fileRef = 54C99CD4254D9FF100BB3EEA /* train-color.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		54C99CC1254C614B00BB3EEA /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		54C99CC3254C629D00BB3EEA /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
 		54C99CD0254D3B1300BB3EEA /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
+		54C99CD4254D9FF100BB3EEA /* train-color.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "train-color.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			children = (
 				54C99CB3254B357A00BB3EEA /* treefir.mtl */,
 				54C99CB2254B357A00BB3EEA /* treefir.obj */,
+				54C99CD4254D9FF100BB3EEA /* train-color.png */,
 				54C99C9D254B057000BB3EEA /* train.mtl */,
 				54C99C9C254B057000BB3EEA /* train.obj */,
 			);
@@ -195,6 +198,7 @@
 				54C99C9F254B057000BB3EEA /* train.mtl in Resources */,
 				54C99C8D254AA72400BB3EEA /* LaunchScreen.storyboard in Resources */,
 				54C99CB4254B357A00BB3EEA /* treefir.obj in Resources */,
+				54C99CD5254D9FF100BB3EEA /* train-color.png in Resources */,
 				54C99CB5254B357A00BB3EEA /* treefir.mtl in Resources */,
 				54C99C8A254AA72400BB3EEA /* Assets.xcassets in Resources */,
 				54C99C88254AA72100BB3EEA /* Main.storyboard in Resources */,
