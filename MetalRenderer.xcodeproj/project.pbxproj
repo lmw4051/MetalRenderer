@@ -28,6 +28,7 @@
 		54C99CC0254C611100BB3EEA /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CBF254C611100BB3EEA /* Scene.swift */; };
 		54C99CC2254C614B00BB3EEA /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CC1254C614B00BB3EEA /* GameScene.swift */; };
 		54C99CC4254C629D00BB3EEA /* Renderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CC3254C629D00BB3EEA /* Renderable.swift */; };
+		54C99CD1254D3B1300BB3EEA /* Mesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54C99CD0254D3B1300BB3EEA /* Mesh.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +56,7 @@
 		54C99CBF254C611100BB3EEA /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		54C99CC1254C614B00BB3EEA /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		54C99CC3254C629D00BB3EEA /* Renderable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Renderable.swift; sourceTree = "<group>"; };
+		54C99CD0254D3B1300BB3EEA /* Mesh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mesh.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			children = (
 				54C99C98254AD67F00BB3EEA /* Extensions.swift */,
 				54C99C9A254AFFAD00BB3EEA /* Model.swift */,
+				54C99CD0254D3B1300BB3EEA /* Mesh.swift */,
 				54C99C94254AAB8100BB3EEA /* Renderer.swift */,
 			);
 			path = Rendering;
@@ -214,6 +217,7 @@
 				54C99C81254AA72100BB3EEA /* AppDelegate.swift in Sources */,
 				54C99CB7254BDC0400BB3EEA /* Camera.swift in Sources */,
 				54C99CC2254C614B00BB3EEA /* GameScene.swift in Sources */,
+				54C99CD1254D3B1300BB3EEA /* Mesh.swift in Sources */,
 				54C99CC4254C629D00BB3EEA /* Renderable.swift in Sources */,
 				54C99CC0254C611100BB3EEA /* Scene.swift in Sources */,
 				54C99C83254AA72100BB3EEA /* SceneDelegate.swift in Sources */,
